@@ -2,9 +2,8 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
-using SpecFlow_BrowserStack;
 
-namespace SpecFlow.BrowserStack
+namespace SpecFlow_BrowserStack
 {
   [Binding]
   public class SingleSteps

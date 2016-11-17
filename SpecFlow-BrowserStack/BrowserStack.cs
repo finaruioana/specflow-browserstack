@@ -10,95 +10,81 @@ using System.IO;
 
 namespace SpecFlow_BrowserStack
 {
-  [Binding]
-  public sealed class BrowserStack
-  {
-    private BrowserStackDriver bsDriver;
-    private string[] tags;
-
-    [BeforeScenario]
-    public void BeforeScenario()
+    [Binding]
+    public sealed class BrowserStack
     {
-      bsDriver = new BrowserStackDriver(ScenarioContext.Current);
-      ScenarioContext.Current["bsDriver"] = bsDriver;
+        private BrowserStackDriver _bsDriver;
+
+        [BeforeScenario]
+        public void BeforeScenario()
+        {
+            _bsDriver = new BrowserStackDriver();
+            ScenarioContext.Current["bsDriver"] = _bsDriver;
+        }
+
+        [AfterScenario]
+        public void AfterScenario()
+        {
+            _bsDriver.Cleanup();
+        }
     }
 
-    [AfterScenario]
-    public void AfterScenario()
+
+    public class BrowserStackDriver
     {
-      bsDriver.Cleanup();
+        private IWebDriver _driver;
+        private Local _browserStackLocal;
+
+        public IWebDriver Init(string profile, string environment)
+        {
+            var caps = ConfigurationManager.GetSection("capabilities/" + profile) as NameValueCollection;
+            var settings = ConfigurationManager.GetSection("environments/" + environment) as NameValueCollection;
+
+            var capability = new DesiredCapabilities();
+
+
+            var logger = Path.Combine(Directory.GetCurrentDirectory(), "sf.log");
+            if (caps != null)
+                foreach (var key in caps.AllKeys)
+                {
+                    capability.SetCapability(key, caps[key]);
+                }
+
+            if (settings != null)
+                foreach (var key in settings.AllKeys)
+                {
+                    capability.SetCapability(key, settings[key]);
+                }
+
+            var username = Environment.GetEnvironmentVariable("BROWSERSTACK_USERNAME") ??
+                           ConfigurationManager.AppSettings.Get("user");
+
+            var accesskey = Environment.GetEnvironmentVariable("BROWSERSTACK_ACCESS_KEY") ??
+                            ConfigurationManager.AppSettings.Get("key");
+
+            capability.SetCapability("browserstack.user", username);
+            capability.SetCapability("browserstack.key", accesskey);
+
+            File.AppendAllText(logger, "Starting local");
+
+            if (capability.GetCapability("browserstack.local") != null && capability.GetCapability("browserstack.local").ToString() == "true")
+            {
+                _browserStackLocal = new Local();
+                var bsLocalArgs = new List<KeyValuePair<string, string>> {
+                     new KeyValuePair<string, string>("key", accesskey)
+                  };
+                _browserStackLocal.start(bsLocalArgs);
+            }
+
+            File.AppendAllText(logger, "Starting driver");
+            _driver = new RemoteWebDriver(new Uri("http://" + ConfigurationManager.AppSettings.Get("server") + "/wd/hub/"), capability);
+            return _driver;
+        }
+
+        public void Cleanup()
+        {
+            _driver.Quit();
+            _browserStackLocal?.stop();
+        }
     }
-  }
-
-
-  public class BrowserStackDriver
-  {
-    private IWebDriver driver;
-    private Local browserStackLocal;
-    private string profile;
-    private string environment;
-    private ScenarioContext context;
-
-    public BrowserStackDriver(ScenarioContext context)
-    {
-      this.context = context;
-    }
-
-    public IWebDriver Init(string profile, string environment)
-    {
-      NameValueCollection caps = ConfigurationManager.GetSection("capabilities/" + profile) as NameValueCollection;
-      NameValueCollection settings = ConfigurationManager.GetSection("environments/" + environment) as NameValueCollection;
-
-      DesiredCapabilities capability = new DesiredCapabilities();
-
-      foreach (string key in caps.AllKeys)
-      {
-        capability.SetCapability(key, caps[key]);
-      }
-
-      foreach (string key in settings.AllKeys)
-      {
-        capability.SetCapability(key, settings[key]);
-      }
-
-      String username = Environment.GetEnvironmentVariable("BROWSERSTACK_USERNAME");
-      if (username == null)
-      {
-        username = ConfigurationManager.AppSettings.Get("user");
-      }
-
-      String accesskey = Environment.GetEnvironmentVariable("BROWSERSTACK_ACCESS_KEY");
-      if (accesskey == null)
-      {
-        accesskey = ConfigurationManager.AppSettings.Get("key");
-      }
-
-      capability.SetCapability("browserstack.user", username);
-      capability.SetCapability("browserstack.key", accesskey);
-
-      File.AppendAllText("C:\\Users\\Admin\\Desktop\\sf.log", "Starting local");
-
-      if (capability.GetCapability("browserstack.local") != null && capability.GetCapability("browserstack.local").ToString() == "true")
-      {
-        browserStackLocal = new Local();
-        List<KeyValuePair<string, string>> bsLocalArgs = new List<KeyValuePair<string, string>>() {
-          new KeyValuePair<string, string>("key", accesskey)
-        };
-        browserStackLocal.start(bsLocalArgs);
-      }
-
-      File.AppendAllText("C:\\Users\\Admin\\Desktop\\sf.log", "Starting driver");
-      driver = new RemoteWebDriver(new Uri("http://" + ConfigurationManager.AppSettings.Get("server") + "/wd/hub/"), capability);
-      return driver;
-    }
-
-    public void Cleanup()
-    {
-      driver.Quit();
-      if (browserStackLocal != null)
-      {
-        browserStackLocal.stop();
-      }
-    }
-  }
 }
