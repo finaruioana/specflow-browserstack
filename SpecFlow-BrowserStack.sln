@@ -5,31 +5,33 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow-BrowserStack", "SpecFlow-BrowserStack\SpecFlow-BrowserStack.csproj", "{445D58CF-ED98-4C47-9E51-7EEF066305FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{E0032CF7-CB8B-4A6E-8D18-F720103318E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AndroidSamsungGalaxyS5|Any CPU = AndroidSamsungGalaxyS5|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		iOSIphone6SPlus|Any CPU = iOSIphone6SPlus|Any CPU
-		OSXMavericksSafari71|Any CPU = OSXMavericksSafari71|Any CPU
+		OSXMavericksSafari|Any CPU = OSXMavericksSafari|Any CPU
 		Release|Any CPU = Release|Any CPU
-		Win10Chrome54|Any CPU = Win10Chrome54|Any CPU
-		Win10Firefox50|Any CPU = Win10Firefox50|Any CPU
+		Win10Chrome|Any CPU = Win10Chrome|Any CPU
+		Win10Firefox|Any CPU = Win10Firefox|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.AndroidSamsungGalaxyS5|Any CPU.ActiveCfg = AndroidSamsungGalaxyS5|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.AndroidSamsungGalaxyS5|Any CPU.Build.0 = AndroidSamsungGalaxyS5|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.AndroidSamsungGalaxyS5|Any CPU.ActiveCfg = OSXMavericksSafari71|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.AndroidSamsungGalaxyS5|Any CPU.Build.0 = OSXMavericksSafari71|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.iOSIphone6SPlus|Any CPU.ActiveCfg = iOSIphone6SPlus|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.iOSIphone6SPlus|Any CPU.Build.0 = iOSIphone6SPlus|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.OSXMavericksSafari71|Any CPU.ActiveCfg = OSXMavericksSafari71|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.OSXMavericksSafari71|Any CPU.Build.0 = OSXMavericksSafari71|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.OSXMavericksSafari|Any CPU.ActiveCfg = OSXMavericksSafari71|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.OSXMavericksSafari|Any CPU.Build.0 = OSXMavericksSafari71|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Chrome54|Any CPU.ActiveCfg = Win10Chrome54|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Chrome54|Any CPU.Build.0 = Win10Chrome54|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Firefox50|Any CPU.ActiveCfg = Win10Firefox50|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Firefox50|Any CPU.Build.0 = Win10Firefox50|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Chrome|Any CPU.ActiveCfg = Win10Chrome54|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Chrome|Any CPU.Build.0 = Win10Chrome54|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Firefox|Any CPU.ActiveCfg = Win10Firefox50|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Firefox|Any CPU.Build.0 = Win10Firefox50|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
