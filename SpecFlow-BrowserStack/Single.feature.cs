@@ -65,22 +65,17 @@ namespace SpecFlow_BrowserStack
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Can find search results")]
-        [NUnit.Framework.TestCaseAttribute("single", "chrome", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("parallel", "chrome", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("parallel", "firefox", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("parallel", "safari", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("parallel", "ie", new string[0])]
-        public virtual void CanFindSearchResults(string profile, string environment, string[] exampleTags)
+        public virtual void CanFindSearchResults()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can find search results", exampleTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can find search results", ((string[])(null)));
 #line 3
 this.ScenarioSetup(scenarioInfo);
 #line 4
- testRunner.Given(string.Format("I am on the google page for {0} and {1}", profile, environment), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I am on the google page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 5
  testRunner.When("I search for \"BrowserStack\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 6
- testRunner.Then("I should see title \"BrowserStack - Google Search\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I get search results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
