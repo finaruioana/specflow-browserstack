@@ -18,20 +18,20 @@ Global
 		Win10Firefox|Any CPU = Win10Firefox|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.AndroidSamsungGalaxyS5|Any CPU.ActiveCfg = OSXMavericksSafari71|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.AndroidSamsungGalaxyS5|Any CPU.Build.0 = OSXMavericksSafari71|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.AndroidSamsungGalaxyS5|Any CPU.ActiveCfg = AndroidSamsungGalaxyS5|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.AndroidSamsungGalaxyS5|Any CPU.Build.0 = AndroidSamsungGalaxyS5|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.iOSIphone6SPlus|Any CPU.ActiveCfg = iOSIphone6SPlus|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.iOSIphone6SPlus|Any CPU.Build.0 = iOSIphone6SPlus|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.OSXMavericksSafari|Any CPU.ActiveCfg = OSXMavericksSafari71|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.OSXMavericksSafari|Any CPU.Build.0 = OSXMavericksSafari71|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.OSXMavericksSafari|Any CPU.ActiveCfg = OSXMavericksSafari|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.OSXMavericksSafari|Any CPU.Build.0 = OSXMavericksSafari|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Chrome|Any CPU.ActiveCfg = Win10Chrome54|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Chrome|Any CPU.Build.0 = Win10Chrome54|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Firefox|Any CPU.ActiveCfg = Win10Firefox50|Any CPU
-		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Firefox|Any CPU.Build.0 = Win10Firefox50|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Chrome|Any CPU.ActiveCfg = Win10Chrome|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Chrome|Any CPU.Build.0 = Win10Chrome|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Firefox|Any CPU.ActiveCfg = Win10Firefox|Any CPU
+		{445D58CF-ED98-4C47-9E51-7EEF066305FF}.Win10Firefox|Any CPU.Build.0 = Win10Firefox|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
