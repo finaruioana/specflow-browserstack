@@ -75,7 +75,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 5
  testRunner.When("I search for \"BrowserStack\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 6
- testRunner.Then("I get search results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should see title \"BrowserStack - Google Search\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

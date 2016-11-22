@@ -15,7 +15,7 @@ $csprojPath="$buildScriptPath\..\$projectName"
 $csproj="$csprojPath\$projectName.csproj"
 $msbuild="C:\Program Files (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 $nunitPath="$buildScriptPath\..\packages\NUnit.Console.3.0.0\tools\nunit3-console.exe"
-$browserstackLocal="C:\Users\ioana.finaru\.browserstack\BrowserStackLocal.exe"
+$browserstackLocal="$solutionPath\local\BrowserStackLocal.exe"
 
 
 Write-Host "Build"
@@ -27,7 +27,6 @@ Write-Host "Build"
 
 Write-Host "Start Local"
 & $browserstackLocal --key $Env:BROWSERSTACK_ACCESS_KEY --force-local --log-file $solutionPath\local.log --daemon start
-
 
 Write-Host "Run Tests"
 @(Get-SolutionConfigurations $solution)| foreach {

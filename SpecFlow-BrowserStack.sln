@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{E0032CF7
 		build\build.ps1 = build\build.ps1
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C1DA5880-5CAE-4C72-A920-49543A07B43C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AndroidSamsungGalaxyS5|Any CPU = AndroidSamsungGalaxyS5|Any CPU

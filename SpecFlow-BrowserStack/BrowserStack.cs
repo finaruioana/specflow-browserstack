@@ -35,7 +35,6 @@ namespace SpecFlow_BrowserStack
                 _browserStackLocal.start(bsLocalArgs);
             }
 
-
             var capabilities = new DesiredCapabilities();
             var caps = ConfigurationManager.GetSection("capabilities") as NameValueCollection;
 
@@ -52,7 +51,7 @@ namespace SpecFlow_BrowserStack
 
             _driver = new RemoteWebDriver(new Uri(ConfigurationManager.AppSettings["server"]), capabilities);
             _driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(1));
-            if (caps != null && caps.Get("os").ToLower().Equals("windows"))
+            if (caps?.Get("os") != null && (caps.Get("os").ToLower().Equals("windows") || caps.Get("os").ToLower().Equals("os x")))
                 _driver.Manage().Window.Maximize();
             ScenarioContext.Current["driver"] = _driver;
         }

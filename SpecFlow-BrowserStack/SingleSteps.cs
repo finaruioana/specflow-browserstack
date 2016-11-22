@@ -1,37 +1,40 @@
-﻿using NUnit.Framework;
+﻿using System.Threading;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
 namespace SpecFlow_BrowserStack
 {
-  [Binding]
-  public class SingleSteps
-  {
-    private IWebDriver _driver;
-
-    public SingleSteps()
+    [Binding]
+    public class SingleSteps
     {
-            _driver = (IWebDriver)ScenarioContext.Current["driver"];
-    }
+        private readonly IWebDriver _driver;
+        
 
-    [Given(@"I am on the google page")]
-    public void GivenIAmOnTheGooglePage()
-    {
-      _driver.Navigate().GoToUrl("https://devtest.likelyloans.com/");
-    }
-
-    [When(@"I search for ""(.*)""")]
-    public void WhenISearchFor(string keyword)
-    {
-      var q = _driver.FindElement(By.XPath("//button[@type='submit']"));
-      q.Click();
-    }
-
-        [Then(@"I get search results")]
-        public void ThenIGetSearchResults()
+        public SingleSteps()
         {
-            Assert.That(_driver.Url, Is.EqualTo("https://devtest.likelyloans.com/apply?LoanAmount=2000&LoanTermInMonths=24"));
+            _driver = (IWebDriver)ScenarioContext.Current["driver"];
         }
 
+        [Given(@"I am on the google page")]
+        public void GivenIAmOnTheGooglePage()
+        {
+            _driver.Navigate().GoToUrl("https://www.google.com/");
+        }
+
+        [When(@"I search for ""(.*)""")]
+        public void WhenISearchFor(string keyword)
+        {
+            var q = _driver.FindElement(By.Name("q"));
+            q.SendKeys(keyword);
+            q.Submit();
+        }
+
+        [Then(@"I should see title ""(.*)""")]
+        public void ThenIShouldSeeTitle(string title)
+        {
+            Thread.Sleep(5000);
+            Assert.That(_driver.Title, Is.EqualTo(title));
+        }
     }
 }
